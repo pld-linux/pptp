@@ -7,6 +7,7 @@ License:	GPL
 Provides:	pptp-linux
 Requires:	ppp >= 2.4.2
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
+# Source0-md5:	9e5c07de3e347c7125ed94824cebeaee
 Group:		Applications/System
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
