@@ -4,11 +4,11 @@ Name:		pptp-linux
 Version:	1.5.0
 Release:	1
 License:	GPL
-Provides:	pptp-linux
-Requires:	ppp >= 2.4.2
+Group:		Applications/System
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
 # Source0-md5:	281ee37788bdf3260426eca56a9af858
-Group:		Applications/System
+Requires:	ppp >= 2.4.2
+Provides:	pptp-linux
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS INSTALL NEWS README TODO USING Documentation Reference
+%doc AUTHORS NEWS README TODO USING Documentation Reference
 %attr(755,root,root) %{_sbindir}/pptp
 %{_mandir}/man8/*
 %attr(755,root,root) %{_sysconfdir}/pptp.d
