@@ -1,13 +1,13 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
 Summary(pl):	Klient protoko³u PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp-linux
-Version:	1.4.0
-Release:	0.1
+Version:	1.5.0
+Release:	1
 License:	GPL
 Provides:	pptp-linux
 Requires:	ppp >= 2.4.2
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
-# Source0-md5:	9e5c07de3e347c7125ed94824cebeaee
+# Source0-md5:	281ee37788bdf3260426eca56a9af858
 Group:		Applications/System
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,7 +27,8 @@ obsugi MPPE w j±drze.
 %setup -q
 
 %build
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
