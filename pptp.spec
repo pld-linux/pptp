@@ -1,5 +1,5 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
-Summary(pl):	Klijent protoko³u PPTP
+Summary(pl):	Klient protoko³u PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp-linux
 Version:	1.4.0
 Release:	0.1
@@ -17,8 +17,8 @@ Protocol, PPTP. Allows connection to a PPTP based VPN as used by
 employers and some cable and ADSL service providers. Requires MPPE
 support in kernel.
 
-%description -l pl
-
+# %description -l pl
+# TODO
 
 %prep
 %setup -q
