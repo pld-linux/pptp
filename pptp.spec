@@ -28,6 +28,7 @@ obsugi MPPE w j±drze.
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}"
 
 %install
