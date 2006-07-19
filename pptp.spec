@@ -1,14 +1,16 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
 Summary(pl):	Klient protoko³u PPTP (Point-to-Point Tunneling Protocol)
-Name:		pptp-linux
-Version:	1.5.0
+Name:		pptp
+Version:	1.7.1
 Release:	1
 License:	GPL
 Group:		Applications/System
+URL:		http://pptpclient.sourceforge.net/
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
-# Source0-md5:	281ee37788bdf3260426eca56a9af858
+# Source0-md5:	b47735ba5d6d37dfdbccb85afc044ede
 Requires:	ppp >= 2.4.2
 Provides:	pptp-linux
+Obsoletes:	pptp-linux
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,6 +27,7 @@ obsugi MPPE w j±drze.
 
 %prep
 %setup -q
+%{__sed} -i -e 's/install -o root -m 555 pptp/install -m 755 pptp/' Makefile
 
 %build
 %{__make} \
@@ -33,10 +36,10 @@ obsugi MPPE w j±drze.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8,%{_sysconfdir}{/ppp,/pptp.d}}
+install -d $RPM_BUILD_ROOT%{_localstatedir}/run/pptp
 
-install pptp.8 $RPM_BUILD_ROOT%{_mandir}/man8/pptp.8
-install pptp $RPM_BUILD_ROOT%{_sbindir}
+%{__make} install \
+        DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,5 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO USING Documentation Reference
 %attr(755,root,root) %{_sbindir}/pptp
-%{_mandir}/man8/*
-%attr(755,root,root) %{_sysconfdir}/pptp.d
+%{_mandir}/man8/pptp.8*
+%dir %attr(750,root,root) %{_localstatedir}/run/pptp
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ppp/options.pptp
