@@ -5,9 +5,9 @@ Version:	1.7.1
 Release:	1
 License:	GPL
 Group:		Applications/System
-URL:		http://pptpclient.sourceforge.net/
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
 # Source0-md5:	b47735ba5d6d37dfdbccb85afc044ede
+URL:		http://pptpclient.sourceforge.net/
 Requires:	ppp >= 2.4.2
 Provides:	pptp-linux
 Obsoletes:	pptp-linux
