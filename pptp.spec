@@ -1,5 +1,5 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
-Summary(pl):	Klient protoko≥u PPTP (Point-to-Point Tunneling Protocol)
+Summary(pl.UTF-8):   Klient protoko≈Çu PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp
 Version:	1.7.1
 Release:	1
@@ -19,11 +19,11 @@ Protocol, PPTP. Allows connection to a PPTP based VPN as used by
 employers and some cable and ADSL service providers. Requires MPPE
 support in kernel.
 
-%description -l pl
-Klient PPTP - w≥asno∂ciowego protoko≥u Point-to-Point Tunneling
-Microsoftu. Umoøliwia ≥±czenie z siecami VPN opartymi o PPTP uøywanymi
-przez niektÛre firmy oraz dostarczycieli ≥±cz kablowych i ADSL. Wymaga
-obsugi MPPE w j±drze.
+%description -l pl.UTF-8
+Klient PPTP - w≈Çasno≈õciowego protoko≈Çu Point-to-Point Tunneling
+Microsoftu. Umo≈ºliwia ≈ÇƒÖczenie z siecami VPN opartymi o PPTP u≈ºywanymi
+przez niekt√≥re firmy oraz dostarczycieli ≈ÇƒÖcz kablowych i ADSL. Wymaga
+obsugi MPPE w jƒÖdrze.
 
 %prep
 %setup -q
