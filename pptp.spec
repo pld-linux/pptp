@@ -1,5 +1,5 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
-Summary(pl.UTF-8):   Klient protokołu PPTP (Point-to-Point Tunneling Protocol)
+Summary(pl.UTF-8):	Klient protokołu PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp
 Version:	1.7.1
 Release:	1
