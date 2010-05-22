@@ -4,7 +4,7 @@ Name:		pptp
 Version:	1.7.2
 Release:	1
 License:	GPL
-Group:		Applications/System
+Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
 # Source0-md5:	4c3d19286a37459a632c7128c92a9857
 URL:		http://pptpclient.sourceforge.net/
@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_localstatedir}/run/pptp
 
 %{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
