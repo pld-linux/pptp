@@ -7,6 +7,7 @@ License:	GPL
 Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
 # Source0-md5:	4c3d19286a37459a632c7128c92a9857
+Source1:	%{name}.tmpfiles
 Patch0:		%{name}-ip.patch
 URL:		http://pptpclient.sourceforge.net/
 Requires:	ppp >= 2.4.2
@@ -39,10 +40,13 @@ obsugi MPPE w jądrze.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_localstatedir}/run/pptp
+install -d $RPM_BUILD_ROOT%{_localstatedir}/run/pptp \
+	$RPM_BUILD_ROOT/usr/lib/tmpfiles.d
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/lib/tmpfiles.d/%{name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,5 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/pptpsetup
 %{_mandir}/man8/pptp.8*
 %{_mandir}/man8/pptpsetup.8*
+/usr/lib/tmpfiles.d/%{name}.conf
 %dir %attr(750,root,root) %{_localstatedir}/run/pptp
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ppp/options.pptp
