@@ -2,7 +2,7 @@ Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
 Summary(pl.UTF-8):	Klient protokołu PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp
 Version:	1.7.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
