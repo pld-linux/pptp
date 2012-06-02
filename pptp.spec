@@ -5,7 +5,7 @@ Version:	1.7.2
 Release:	3
 License:	GPL
 Group:		Networking/Admin
-Source0:	http://dl.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
 # Source0-md5:	4c3d19286a37459a632c7128c92a9857
 Source1:	%{name}.tmpfiles
 Patch0:		%{name}-ip.patch
