@@ -1,14 +1,15 @@
 Summary:	Point-to-Point Tunneling Protocol (PPTP) Client
 Summary(pl.UTF-8):	Klient protokołu PPTP (Point-to-Point Tunneling Protocol)
 Name:		pptp
-Version:	1.8.0
+Version:	1.10.0
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://downloads.sourceforge.net/pptpclient/%{name}-%{version}.tar.gz
-# Source0-md5:	4efce9f263e2c3f38d79d9df222476de
+# Source0-md5:	8d25341352fdae5ad5b36b9f18254908
 Source1:	%{name}.tmpfiles
 URL:		http://pptpclient.sourceforge.net/
+BuildRequires:	rpmbuild(macros) >= 1.644
 Requires:	ppp >= 2.4.2
 Provides:	pptp-linux
 Obsoletes:	pptp-linux
@@ -40,7 +41,7 @@ obsugi MPPE w jądrze.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_localstatedir}/run/pptp \
-	$RPM_BUILD_ROOT/usr/lib/tmpfiles.d
+	$RPM_BUILD_ROOT%{systemdtmpfilesdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -52,11 +53,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO USING Documentation
+%doc AUTHORS NEWS PROTOCOL-SECURITY README TODO USING Documentation
 %attr(755,root,root) %{_sbindir}/pptp
 %attr(755,root,root) %{_sbindir}/pptpsetup
 %{_mandir}/man8/pptp.8*
 %{_mandir}/man8/pptpsetup.8*
-/usr/lib/tmpfiles.d/%{name}.conf
+%{systemdtmpfilesdir}/%{name}.conf
 %dir %attr(750,root,root) %{_localstatedir}/run/pptp
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ppp/options.pptp
